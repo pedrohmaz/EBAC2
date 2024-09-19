@@ -28,28 +28,27 @@ class MainActivity : AppCompatActivity() {
         val editText = findViewById<EditText>(R.id.et_main)
         val button = findViewById<Button>(R.id.bt_main)
 
-        var counter = 0
+        var numClicks = 0
         var bgNumber = 0
         var nome = "Nome"
 
         editText.addTextChangedListener {
             nome = "$it"
-            text.text = "$nome - Número de cliques: $counter"
+            text.text = "$nome - Número de cliques: $numClicks"
         }
 
         button.setOnClickListener {
-            counter++
+            numClicks++
             bgNumber++
 
             if (bgNumber > 2) bgNumber = 0
 
             when (bgNumber) {
-
                 0 -> screen.background = AppCompatResources.getDrawable(this, R.drawable.bg0)
                 1 -> screen.background = AppCompatResources.getDrawable(this, R.drawable.bg1)
                 2 -> screen.background = AppCompatResources.getDrawable(this, R.drawable.bg2)
             }
-            text.text = "$nome - Número de cliques: $counter"
+            text.text = "$nome - Número de cliques: $numClicks"
         }
 
     }
